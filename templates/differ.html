@@ -1,0 +1,18 @@
+{% extends "base_layout.html" %}
+{% block differ %}
+<div class="col-sm-8 text-left">
+    <h3>Inputed First File</h3>
+   {% for tags in first_html_list %}
+            {{tags|safe}}
+   {% endfor %}
+   <hr>
+   <h3>Inputed Second File</h3>
+   {% for tags in second_html_list %}
+            {{tags|safe}}
+   {% endfor %}
+    <hr>
+    <h3>Different Result</h3>
+   {{differents|safe}}
+</div>
+{% endblock %}
+  
