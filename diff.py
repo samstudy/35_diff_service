@@ -46,28 +46,21 @@ def html2list(x, b=0):
     out = []
     for c in x:
         if mode == 'tag':
-            if c == '>':
-                if b:
-                    cur += ']'
-                else:
-                    cur += c
-                    out.append(cur); cur = ''; mode = 'char'
-            else:
-                cur += c
+            if c == '>': 
+                if b: cur += ']'
+                else: cur += c
+                out.append(cur); cur = ''; mode = 'char'
+            else: cur += c
         elif mode == 'char':
-            if c == '<':
-                        out.append(cur)
-            if b:
-                cur = '['
-            else:
-                cur = c
+            if c == '<': 
+                out.append(cur)
+                if b: cur = '['
+                else: cur = c
                 mode = 'tag'
-            elif c in string.whitespace:
-                                        out.append(cur+c); cur = ''
-            else:
-                cur += c
+            elif c in string.whitespace: out.append(cur+c); cur = ''
+            else: cur += c
     out.append(cur)
-    return filter(lambda x: x is not '', out)
+    return list(filter(lambda x: x is not '', out))
 
 
 if __name__ == '__main__':
