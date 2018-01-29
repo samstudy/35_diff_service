@@ -1,10 +1,4 @@
-#!/usr/bin/python
-"""HTML Diff: http://www.aaronsw.com/2002/diff
-Rough code, badly documented. Send me comments and patches."""
-
-__author__ = 'Aaron Swartz <me@aaronsw.com>'
-__copyright__ = '(C) 2003 Aaron Swartz. GNU GPL 2 or 3.'
-__version__ = '0.22'
+# The code was taken and modified from http://www.aaronsw.com/2002/diff/diff.py
 
 import difflib
 import string
@@ -40,7 +34,7 @@ def get_target_html(tag, a, b):
 def textDiff(a, b):
     out = []
     """Takes in strings a and b and returns a human-readable HTML diff."""
-    try:  # autojunk can cause malformed HTML, but also speeds up processing.
+    try:
         matcher = difflib.SequenceMatcher(None, a, b, autojunk=False)
     except TypeError:
         matcher = difflib.SequenceMatcher(None, a, b)
