@@ -4,12 +4,12 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def upl_file():
+def form():
     return render_template('index.html')
 
 
 @app.route('/differ', methods=['POST'])
-def upload_file():
+def compare_uploaded_files():
     first_file = request.files['inputFirstFile']
     second_file = request.files['inputSecondFile']
     first_data = first_file.readlines()
